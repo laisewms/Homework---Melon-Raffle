@@ -1,7 +1,6 @@
 """Read customer data from file and run a raffle."""
 
 import random 
-import sys 
 
 
 class Customer:
@@ -15,7 +14,7 @@ class Customer:
         self.zipcode = zipcode
 
 
-def get_customers_from_file():
+def get_customers_from_file(customer_file_path):
     """Read customer file and return list of customer objects.
 
     Read file at customer_file_path and create a customer object
@@ -23,8 +22,8 @@ def get_customers_from_file():
     """
 
     customers = []
-
-    customer_file = open(sys.argv[1])
+    
+    customer_file = open(customer_file_path)
 
     # Process a file like:
     #
@@ -54,5 +53,9 @@ def pick_winner(customers):
 def run_raffle():
     """Run the weekly raffle."""
 
-    customers = get_customers_from_file()
+    customers = get_customers_from_file("customers.txt")
     pick_winner(customers)
+
+
+if __name__ == "__main__":
+    run_raffle()

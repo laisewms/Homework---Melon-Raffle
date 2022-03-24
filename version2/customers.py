@@ -1,6 +1,8 @@
 """Customer class definition"""
 
 
+from customers import get_customers_from_file
+
 class Customer:
     """A customer at Ubermelon."""
 
